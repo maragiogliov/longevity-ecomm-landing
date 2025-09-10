@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .landing-light-mode .container {
@@ -434,4 +435,185 @@
   line-height: var(--body-md-line-height);
   white-space: nowrap;
   font-style: var(--body-md-font-style);
+}
+
+
+
+/* --- Responsive breakpoints --- */
+
+/* Tablets and small laptops */
+@media (max-width: 990px) {
+  .landing-light-mode .container {
+    width: 90%;
+    gap: 48px;
+    margin: 1.5rem;
+  }
+
+  .landing-light-mode .header {
+    width: 96%;
+    margin: 1rem 0 3rem 0;
+  }
+
+  .landing-light-mode .title-container {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-light-mode .title {
+    font-size: 64px;
+    line-height: 68px;
+  }
+
+  .landing-light-mode .subtitle {
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .landing-light-mode .credits-container {
+    width: 100%;
+  }
+
+  .landing-light-mode .credits-wrapper {
+    height: auto;
+  }
+
+  .landing-light-mode .credits {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .landing-light-mode .credits-badge {
+    width: auto;
+    gap: 10px;
+  }
+
+  .landing-light-mode .div-2 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .landing-light-mode .input-placeholder-wrapper {
+    width: 100%;
+    padding: 18px 12px;
+  }
+
+  .landing-light-mode .actions-container {
+    gap: 16px;
+  }
+}
+
+/* Large phones / portrait tablets */
+@media (max-width: 768px) {
+  .landing-light-mode .title {
+    font-size: 48px;
+    line-height: 54px;
+  }
+
+  .landing-light-mode .subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    padding: 0 8px;
+  }
+
+  .landing-light-mode .badge-wrapper {
+    padding: 4px 8px;
+  }
+
+  .landing-light-mode .vector-2 {
+    width: 28px;
+    height: 14px;
+  }
+
+  .landing-light-mode .actions-container {
+    flex-direction: column;
+  }
+
+  .landing-light-mode .order-history,
+  .landing-light-mode .shop-supplements,
+  .landing-light-mode .view-visits {
+    width: 100%;
+  }
+
+  .landing-light-mode .button-icon {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .landing-light-mode .send {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .landing-light-mode .header {
+    margin-bottom: 2rem;
+  }
+
+  .landing-light-mode .logo {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .landing-light-mode .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .landing-light-mode .subtitle {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .landing-light-mode .credits-container {
+    padding: 18px 12px;
+    gap: 10px;
+  }
+
+  .landing-light-mode .credits {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .landing-light-mode .credits-text,
+  .landing-light-mode .buy-more-text,
+  .landing-light-mode .free-credits-text {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .landing-light-mode .input-placeholder-wrapper {
+    padding: 14px 12px;
+  }
+
+  .landing-light-mode .input-placeholder {
+    font-size: 15px;
+    line-height: 20px;
+    white-space: normal;
+  }
+
+  .landing-light-mode .button-icon {
+    padding: 10px;
+  }
+
+  .landing-light-mode .img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .landing-light-mode .order-history-title,
+  .landing-light-mode .shop-supplements-2,
+  .landing-light-mode .view-visits-title {
+    font-size: 16px;
+  }
+
+  .landing-light-mode .text-wrapper,
+  .landing-light-mode .shop-supplements-3,
+  .landing-light-mode .view-visits-subtitle {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
