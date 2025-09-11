@@ -7,9 +7,12 @@
 }
 
 .agent-light-mode .div {
-  width: 1710px;
+
   height: 1107px;
   position: relative;
+width: 100%;
+max-width: 1710px; 
+
 }
 
 .agent-light-mode .overlap-group {
@@ -22,15 +25,44 @@
   border-color: var(--mapped-border-and-dividers-primary);
   position: absolute;
   background-color: var(--mapped-surface-primary);
+  padding-bottom: 260px; /* leave space for footer items */
+}
+
+/* Center the chat area and make it responsive on desktop */
+.agent-light-mode .overlap {
+  position: absolute;
+  left: 250px;              /* space for sidebar */
+  right: 0;
+  width: calc(100vw - 250px);
+  max-width: 960px;         /* responsive max width */
+  margin: 0 auto;           /* center within available space */
+}
+
+/* Backdrop to close the drawer on mobile; hidden by default */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.3);
+  backdrop-filter: blur(1px);
+  display: none;
+  z-index: 49; /* just under the drawer (50) */
 }
 
 .agent-light-mode .div-2 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  position: absolute;
-  top: 1061px;
-  left: 14px;
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+}
+
+.agent-light-mode .moon {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  left: 215px;
+  bottom: 18px;
 }
 
 .agent-light-mode .img {
@@ -53,21 +85,13 @@
   font-style: var(--body-sm-bold-font-style);
 }
 
-.agent-light-mode .moon {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 1063px;
-  left: 215px;
-}
-
 .agent-light-mode .div-3 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  position: absolute;
-  top: 784px;
-  left: 14px;
+  position: fixed;
+  left: 16px;
+  bottom: 214px;
 }
 
 .agent-light-mode .button {
@@ -94,7 +118,6 @@
   line-height: var(--body-md-bold-line-height);
   white-space: nowrap;
   font-style: var(--body-md-bold-font-style);
-
 }
 
 .agent-light-mode .plus {
@@ -102,8 +125,6 @@
   width: 17px;
   height: 17px;
 }
-
-
 
 .agent-light-mode .div-4 {
   display: inline-flex;
@@ -115,11 +136,11 @@
 }
 
 .agent-light-mode .group {
-  position: absolute;
+  position: fixed;
   width: 217px;
   height: 57px;
-  top: 815px;
-  left: 14px;
+  left: 16px;
+  bottom: 186px;
 }
 
 .agent-light-mode .button-card-teal {
@@ -178,9 +199,9 @@
 .agent-light-mode .button-card-teal-2 {
   display: flex;
   width: 217px;
-  position: absolute;
-  top: 883px;
-  left: 14px;
+  position: fixed;
+  left: 16px;
+  bottom: 121px;
   background-color: var(--brand-neon-cards-surface-light-purple);
   border-radius: var(--alias-border-radius-md);
   border: 1px solid;
@@ -218,9 +239,9 @@
 .agent-light-mode .button-card-teal-3 {
   display: flex;
   width: 217px;
-  position: absolute;
-  top: 951px;
-  left: 14px;
+  position: fixed;
+  left: 16px;
+  bottom: 56px;
   background-color: var(--brand-neon-cards-surface-light-blue);
   border-radius: var(--alias-border-radius-md);
   border: 1px solid;
@@ -393,31 +414,21 @@
   line-height: normal;
 }
 
-.agent-light-mode .button-card-teal-5 {
-  display: inline-flex;
-  height: 115px;
-  position: absolute;
-  top: 758px;
-  left: 1232px;
-  background-color: var(--brand-blue-lighter);
-  border-radius: 12px;
-  align-items: center;
-  gap: 12px;
-  padding: 0px 12px;
-}
-
 .agent-light-mode .div-5 {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  position: absolute;
-  top: 897px;
+  position: fixed;
   left: 271px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 55;
 }
 
 .agent-light-mode .div-wrapper-2 {
   display: flex;
-  width: 724px;
+  width: 100%;
   height: 48px;
   align-items: center;
   gap: 10px;
@@ -651,4 +662,146 @@
   line-height: var(--body-md-bold-line-height);
   white-space: nowrap;
   font-style: var(--body-md-bold-font-style);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .agent-light-mode {
+    width: 100%;
+    display: block;
+  }
+
+  .agent-light-mode .div {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .agent-light-mode .overlap-2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    z-index: 60;
+  }
+  .agent-light-mode .div-6 {
+    left: 16px;
+    top: 8px;
+  }
+  .agent-light-mode .frame-wrapper-2 {
+    left: auto;
+    right: 16px;
+    top: 8px;
+  }
+
+  .agent-light-mode .overlap-group {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 272px;
+    height: 100vh;
+    z-index: 50;
+    overflow-y: auto;
+    border-right: 1px solid var(--mapped-border-and-dividers-primary);
+    box-shadow: 0 8px 32px rgba(0,0,0,.12);
+    background: var(--mapped-surface-primary);
+  }
+
+  .agent-light-mode .button,
+  .agent-light-mode .frame-wrapper,
+  .agent-light-mode .group,
+  .agent-light-mode .button-card-teal-2,
+  .agent-light-mode .button-card-teal-3,
+  .agent-light-mode .div-3,
+  .agent-light-mode .div-4,
+  .agent-light-mode .div-2 {
+    left: 16px;
+  }
+  .agent-light-mode .button { width: calc(100% - 32px); }
+  .agent-light-mode .frame-wrapper,
+  .agent-light-mode .group,
+  .agent-light-mode .button-card-teal-2,
+  .agent-light-mode .button-card-teal-3 {
+    width: calc(100% - 32px);
+  }
+
+  .agent-light-mode .overlap {
+    position: absolute;
+    left: 250px;              /* space for sidebar */
+    right: 0;
+    width: calc(100vw - 250px);
+    max-width: 960px;         /* responsive max width */
+    margin: 0 auto;           /* center within available space */
+  }
+
+  .agent-light-mode .button-card-teal-wrapper,
+  .agent-light-mode .button-card-teal-wrapper-2 {
+    position: static;
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+  }
+  .agent-light-mode .div-wrapper,
+  .agent-light-mode .button-card-teal-4,
+  .agent-light-mode .frame-2,
+  .agent-light-mode .frame-3 {
+    width: 100%;
+  }
+
+  .agent-light-mode .div-5 {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 55;
+    display: flex;
+  }
+  .agent-light-mode .div-wrapper-2 {
+    width: 100%;
+    height: 48px;
+  }
+
+  .agent-light-mode .overlap:after {
+    content: "";
+    display: block;
+    height: 80px;
+  }
+
+  .agent-light-mode .p,
+  .agent-light-mode .shop-supplements-4 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .agent-light-mode .text-wrapper-4 {
+    font-size: 15px;
+  }
+
+  .agent-light-mode .line,
+  .agent-light-mode .line-2 {
+    display: none;
+  }
+
+    /* Off-canvas by default; slide in when .drawer-open is on <body> */
+  .agent-light-mode .overlap-group {
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+  }
+  body.drawer-open .agent-light-mode .overlap-group {
+    transform: translateX(0);
+  }
+
+  /* Show clickable backdrop only when drawer is open */
+  body.drawer-open .drawer-backdrop { display: block; }
+
+  /* Chat width centered and no horizontal scroll */
+  .agent-light-mode .overlap {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 640px;
+    margin: 64px auto 0; /* under header, centered */
+    position: relative;
+    padding-inline: 16px;
+  }
 }
