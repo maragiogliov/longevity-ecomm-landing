@@ -91,6 +91,10 @@
   border-radius: 12px;
   border: 1px solid;
   border-color: var(--mapped-border-and-dividers-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .catalog-light-mode .frame-5 {
@@ -99,8 +103,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  top: 8px;
-  left: 12px;
+  
 }
 
 .catalog-light-mode .frame-6 {
@@ -429,7 +432,6 @@
   border-radius: 10px;
   border: 1px solid;
   border-color: var(--mapped-border-and-dividers-primary);
-  background-color: var(--brand-grey-lighter-2);
 }
 
 .catalog-light-mode .rectangle {
@@ -697,7 +699,7 @@
   height: 539px;
   top: 317px;
   left: 193px;
-  background-image: url(./img/union.svg);
+  background-image: url(../assets/catalogFilterBG.svg);
   background-size: 100% 100%;
 }
 
