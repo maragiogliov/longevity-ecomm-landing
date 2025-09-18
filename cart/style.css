@@ -73,6 +73,10 @@
   border-radius: 12px;
   border: 1px solid;
   border-color: var(--mapped-border-and-dividers-secondary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-light-mode .frame-3 {
@@ -80,9 +84,7 @@
   width: 173px;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  top: 8px;
-  left: 12px;
+
 }
 
 .cart-light-mode .frame-4 {
@@ -238,6 +240,8 @@
   position: relative;
   width: 89px;
   height: 90px;
+  border: 1px var(--mapped-text-body) solid;
+    border-radius: 8px;
 }
 
 .cart-light-mode .frame-10 {
@@ -942,8 +946,6 @@
   position: absolute;
   width: 15px;
   height: 15px;
-  top: -4054px;
-  left: -881px;
 }
 
 .cart-light-mode .text-wrapper-21 {
