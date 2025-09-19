@@ -301,6 +301,8 @@
   position: relative;
   width: 89px;
   height: 90px;
+    border: 1px var(--mapped-text-body) solid;
+    border-radius: 8px;
 }
 
 .review-light-mode .frame-12 {
