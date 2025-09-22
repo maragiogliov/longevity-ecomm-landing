@@ -882,3 +882,269 @@
   padding: 12px;
   border-radius: var(--brand-scale-50);
 }
+
+/* ================================
+   PAYMENT — FLUID & RESPONSIVE
+   (place AFTER your current CSS)
+   ================================ */
+
+/* ---- Layout container: make fluid ---- */
+.payment-light-mode {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.payment-light-mode .div {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--mapped-surface-primary);
+}
+
+/* ---- Header bar ---- */
+.payment-light-mode .overlap-group {
+  position: sticky; /* stays at top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 10;
+  background-color: var(--mapped-surface-primary);
+  border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
+}
+
+.payment-light-mode .frame {
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  box-sizing: border-box;
+}
+
+/* ---- Progress steps row (Shipping / Payment / Review) ---- */
+.payment-light-mode .frame-19 {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  height: auto;
+  margin: 16px auto 0;
+}
+
+.payment-light-mode .frame-20,
+.payment-light-mode .frame-21,
+.payment-light-mode .frame-22 {
+  position: relative;
+}
+
+.payment-light-mode .rectangle,
+.payment-light-mode .rectangle-2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ---- Main content area: turn absolute stack into a grid ---- */
+.payment-light-mode .overlap {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 1140px;
+  height: auto;
+  margin: 24px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  grid-template-areas:
+    "title  title"
+    "form   summary";
+  column-gap: 24px;
+  row-gap: 16px;
+  align-items: start;
+}
+
+/* Decorative backgrounds: keep but behind content */
+.payment-light-mode .img,
+.payment-light-mode .vector-2 {
+  position: absolute;
+  inset: 0 auto auto 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+.payment-light-mode .img { width: 62%; height: auto; }
+.payment-light-mode .vector-2 { right: 0; left: auto; width: 38%; height: auto; }
+
+/* Headline row inside content */
+.payment-light-mode .frame-5 {
+  grid-area: title;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding-inline: 4px;
+  box-sizing: border-box;
+}
+
+/* Summary card (right column) */
+.payment-light-mode .frame-6 {
+  grid-area: summary;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+.payment-light-mode .frame-7 { width: 100%; height: auto; }
+
+/* Payment form (left column) */
+.payment-light-mode .frame-16 {
+  grid-area: form;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  padding: 8px 0 0;
+  box-sizing: border-box;
+}
+
+/* Make all form blocks fluid */
+.payment-light-mode .input,
+.payment-light-mode .input-3 {
+  width: 100%;
+  max-width: none;
+}
+
+.payment-light-mode .input-2 {
+  width: 100%;
+  max-width: none;
+}
+
+.payment-light-mode .frame-17 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Expiry | CVV */
+  gap: 28px;
+  width: 100%;
+}
+
+.payment-light-mode .field {
+  width: 100%;
+}
+
+/* CTA button full width of form */
+.payment-light-mode .button {
+  width: 100%;
+  max-width: none;
+}
+
+/* Infinite icon—anchor bottom-right but don’t overflow */
+.payment-light-mode .infinite-outline-wrapper {
+  right: 16px;
+  left: auto;
+  bottom: 16px;
+  top: auto;
+  position: fixed;
+  z-index: 5;
+}
+
+/* ======================================
+   BREAKPOINTS
+   ====================================== */
+
+/* Large tablets / small desktops */
+@media (max-width: 1200px) {
+  .payment-light-mode .frame { max-width: 100%; }
+  .payment-light-mode .overlap { max-width: 100%; padding: 0 24px; }
+  .payment-light-mode .frame-19 { max-width: 100%; padding: 0 24px; }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .payment-light-mode .overlap {
+    grid-template-columns: 1fr 320px;
+    column-gap: 20px;
+  }
+  .payment-light-mode .img,
+  .payment-light-mode .vector-2 { opacity: 0.25; }
+}
+
+/* Mobile (maps to your .payment-light-mobile layout) */
+@media (max-width: 768px) {
+  /* Header compact */
+  .payment-light-mode .frame {
+    padding: 10px 16px;
+  }
+
+  /* Steps row stacks neatly */
+  .payment-light-mode .frame-19 {
+    padding: 0 16px;
+    margin-top: 12px;
+  }
+  .payment-light-mode .rectangle,
+  .payment-light-mode .rectangle-2 {
+    width: 72px;
+  }
+
+  /* Main content becomes single column */
+  .payment-light-mode .overlap {
+    padding: 0 16px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "form"
+      "summary";
+    row-gap: 18px;
+  }
+
+  /* Hide decorative backgrounds on mobile for clarity */
+  .payment-light-mode .img,
+  .payment-light-mode .vector-2 {
+    display: none;
+  }
+
+  /* Title row */
+  .payment-light-mode .frame-5 { padding-inline: 0; }
+
+  /* Form spacing mirrors mobile */
+  .payment-light-mode .frame-16 {
+    gap: 16px;
+  }
+
+  /* Expiry/CVV now stacked like mobile spec */
+  .payment-light-mode .frame-17 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Summary card full-width below form */
+  .payment-light-mode .frame-6 .frame-7 {
+    padding: 24px;
+  }
+
+  /* Tweak small text sizes to match mobile look */
+  .payment-light-mode .text-wrapper-5 { font-size: var(--body-md-bold-font-size); }
+  .payment-light-mode .text-wrapper-6 { font-size: var(--heading-h6-font-size); }
+
+  /* Keep CTA large & tappable */
+  .payment-light-mode .button {
+    padding: 14px 20px;
+    border-radius: var(--alias-border-width-lg);
+  }
+
+  /* Floaty infinite icon off on mobile (optional) */
+  .payment-light-mode .infinite-outline-wrapper { display: none; }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .payment-light-mode .overlap,
+  .payment-light-mode .frame-19 { padding: 0 12px; }
+  .payment-light-mode .frame-7 { padding: 24px 16px; }
+}

@@ -405,3 +405,176 @@
   white-space: nowrap;
   font-style: var(--body-md-bold-font-style);
 }
+
+/* ================================
+   PROCESS COMPLETED — Responsive
+   Append below your existing CSS
+   ================================ */
+
+/* Fluid container instead of fixed canvas */
+.process-completed .div{
+  width:100%;
+  max-width:1710px;
+  height:auto;
+  min-height:100dvh;
+  margin:0 auto;
+}
+
+/* Header bar spans full width */
+.process-completed .overlap{
+  width:100%;
+  left:0;
+  right:0;
+}
+
+/* Center the header content */
+.process-completed .overlap > .frame{
+  left:0;               /* override desktop left offset */
+  margin:0 auto;        /* center */
+  width:min(1156px, 100% - 32px);
+  gap:16px;
+  justify-content:space-between;
+}
+
+/* Main content block: center and make fluid */
+.process-completed .frame-2{
+  position:relative;    /* override absolute */
+  top:0; left:0;        /* clear offsets */
+  margin:140px auto 64px;
+  width:min(794px, 100% - 32px);
+  gap:40px;
+}
+
+/* Title widths should not overflow on small screens */
+.process-completed .frame-6{ width:100%; }
+.process-completed .text-wrapper-2{ width:100%; }
+
+/* Stats/card row should wrap nicely */
+.process-completed .frame-7{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px 16px;
+}
+
+/* Make each stats card flexible */
+.process-completed .frame-wrapper,
+.process-completed .frame-10,
+.process-completed .frame-12{
+  width:auto;
+  flex:1 1 240px;     /* min 240px, grows if space */
+  max-width:360px;
+}
+
+/* Keep the green check badge crisp on any width */
+.process-completed .frame-5{
+  height:auto;
+  padding:20px;
+}
+.process-completed .ellipse{
+  width:119px;
+  height:119px;
+}
+.process-completed .vector{
+  width:56px;
+  height:56px;
+  inset:auto;          /* avoid absolute offsets fighting on smaller screens */
+}
+
+/* CTA button spans container but not edge-to-edge on desktop */
+.process-completed .button{
+  width:100%;
+  max-width:675px;
+  margin:0 auto;
+}
+
+/* --------------------------------
+   ⬇️ Breakpoints
+   -------------------------------- */
+
+/* Large tablets / small laptops */
+@media (max-width: 1200px){
+  .process-completed .frame-2{
+    margin-top:120px;
+    width:min(860px, 100% - 48px);
+  }
+  .process-completed .overlap > .frame{
+    width:min(1024px, 100% - 48px);
+  }
+  .process-completed .frame-7{
+    gap:18px;
+  }
+  .process-completed .frame-wrapper,
+  .process-completed .frame-10,
+  .process-completed .frame-12{
+    flex:1 1 280px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px){
+  .process-completed .overlap{ height:auto; }
+  .process-completed .overlap > .frame{
+    width:100%;
+    padding:12px 20px;
+  }
+  .process-completed .frame-2{
+    margin-top:96px;
+    width:min(720px, 100% - 40px);
+    gap:32px;
+  }
+  .process-completed .ellipse{
+    width:104px; height:104px;
+  }
+  .process-completed .vector{
+    width:48px; height:48px;
+  }
+}
+
+/* Large phones / small tablets */
+@media (max-width: 768px){
+  .process-completed .frame-2{
+    margin-top:80px;
+    width:calc(100% - 32px);
+  }
+  .process-completed .frame-7{
+    gap:14px;
+  }
+  .process-completed .frame-wrapper,
+  .process-completed .frame-10,
+  .process-completed .frame-12{
+    flex:1 1 100%;
+    max-width:100%;
+  }
+  .process-completed .button{
+    max-width:100%;
+  }
+  /* Tighter heading spacing */
+  .process-completed .frame-6{ gap:6px; }
+}
+
+/* Phones */
+@media (max-width: 480px){
+  .process-completed .overlap > .frame{
+    padding:10px 16px;
+  }
+  .process-completed .frame-2{
+    margin:72px auto 56px;
+    width:calc(100% - 24px);
+    gap:28px;
+  }
+  .process-completed .frame-4{ gap:12px; }
+  .process-completed .frame-5{ padding:16px; }
+  .process-completed .ellipse{ width:96px; height:96px; }
+  .process-completed .vector{ width:44px; height:44px; }
+  .process-completed .text-wrapper-2,
+  .process-completed .text-wrapper-3{
+    text-wrap:balance; /* nicer wrapping for two-line headings */
+  }
+  .process-completed .frame-7{ gap:12px; }
+  .process-completed .frame-wrapper,
+  .process-completed .frame-10,
+  .process-completed .frame-12{
+    padding:16px 18px; /* keep tap-friendly without edge crowding */
+  }
+}
