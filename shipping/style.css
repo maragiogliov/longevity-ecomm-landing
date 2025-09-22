@@ -892,3 +892,248 @@
   padding: 12px;
   border-radius: var(--brand-scale-50);
 }
+
+/* ============================================
+   SHIPPING PAGE — RESPONSIVE OVERRIDES
+   Targets .shipping-light-mode only
+   ============================================ */
+
+/* ---------- Large → Tablet ---------- */
+@media (max-width: 1280px) {
+  .shipping-light-mode .div {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .shipping-light-mode .overlap {
+    width: 100%;
+    left: 0;
+  }
+
+  .shipping-light-mode .frame {
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    padding: 8px 16px;
+    box-sizing: border-box;
+  }
+}
+
+/* ---------- Tablet & Down (layout becomes stacked) ---------- */
+@media (max-width: 1024px) {
+  /* Top bar becomes sticky */
+  .shipping-light-mode .overlap {
+    position: sticky;
+    top: 0;
+    height: 56px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+  }
+
+  .shipping-light-mode .frame {
+    padding: 0 16px;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  /* Loyalty pill can be cramped on small screens → hide it from ~tablet down */
+  .shipping-light-mode .label { display: none; }
+
+  /* Main content becomes a column */
+  .shipping-light-mode .overlap-group {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    left: auto;
+    top: auto;
+  }
+
+  /* Decorative backgrounds off on small screens */
+  .shipping-light-mode .img,            /* /assets/backgroundShippingBig.svg */
+  .shipping-light-mode .vector-3 {      /* /assets/BackgroundPaymentSmall.svg */
+    display: none;
+  }
+
+  /* Section title row */
+  .shipping-light-mode .frame-9 {
+    position: static;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+  }
+
+  /* Form wrapper */
+  .shipping-light-mode .frame-5 {
+    order: 2;
+    position: static;
+    width: 100%;
+    height: auto;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .shipping-light-mode .frame-6 {
+    gap: 20px;
+  }
+
+  /* First/Last name row → wraps nicely on tablet */
+  .shipping-light-mode .frame-7 {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .shipping-light-mode .input {
+    width: calc(50% - 8px);
+    min-width: 260px;
+    flex: 1 1 260px;
+  }
+
+  .shipping-light-mode .input-2,
+  .shipping-light-mode .field,
+  .shipping-light-mode .placeholder-wrapper {
+    width: 100%;
+  }
+
+  /* City / State / Post code as a responsive grid */
+  .shipping-light-mode .frame-8 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .shipping-light-mode .input-3 { width: 100%; }
+
+  /* CTA full width */
+  .shipping-light-mode .button {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  /* Order summary panel drops under the form */
+  .shipping-light-mode .frame-10 {
+    order: 3;
+    position: static;
+    width: 100%;
+    height: auto;
+    gap: 16px;
+  }
+  .shipping-light-mode .frame-11 {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .shipping-light-mode .frame-12,
+  .shipping-light-mode .frame-13,
+  .shipping-light-mode .frame-14 {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Stepper row (Shipping / Payment / Review) */
+  .shipping-light-mode .frame-20 {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 8px 0 0;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+  }
+  .shipping-light-mode .frame-21,
+  .shipping-light-mode .frame-22,
+  .shipping-light-mode .frame-23 {
+    position: static;
+  }
+  .shipping-light-mode .rectangle,
+  .shipping-light-mode .rectangle-2 {
+    display: none; /* hide the desktop progress lines on small screens */
+  }
+
+  /* FAB moves to the bottom-right */
+  .shipping-light-mode .infinite-outline-wrapper {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    left: auto;
+    top: auto;
+    z-index: 50;
+    padding: 10px;
+    border-radius: var(--brand-scale-50);
+  }
+}
+
+/* ---------- Mobile (≤ 640px) ---------- */
+@media (max-width: 640px) {
+  /* Header compacts */
+  .shipping-light-mode .overlap { height: 54px; }
+  .shipping-light-mode .frame { padding: 0 12px; gap: 10px; }
+
+  /* Form spacing & paddings */
+  .shipping-light-mode .frame-5 { gap: 16px; }
+  .shipping-light-mode .frame-6 { gap: 16px; }
+
+  /* First/Last name stack vertically on phones */
+  .shipping-light-mode .frame-7 { flex-direction: column; }
+  .shipping-light-mode .input { width: 100%; min-width: 0; }
+
+  /* City / State / Post code → 1 column on phones */
+  .shipping-light-mode .frame-8 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Card paddings */
+  .shipping-light-mode .frame-11,
+  .shipping-light-mode .frame-14,
+  .shipping-light-mode .frame-16,
+  .shipping-light-mode .frame-18 {
+    padding: 16px;
+  }
+
+  /* Typography slightly smaller for better fit */
+  .shipping-light-mode .text-wrapper,
+  .shipping-light-mode .text-wrapper-16,
+  .shipping-light-mode .text-wrapper-17,
+  .shipping-light-mode .text-wrapper-18 {
+    font-size: calc(var(--body-md-font-size) * 0.95);
+    line-height: calc(var(--body-md-line-height) * 0.95);
+  }
+  .shipping-light-mode .SHIPPING-COORDINATES {
+    font-size: calc(var(--heading-h5-font-size) * 0.92);
+    line-height: calc(var(--heading-h5-line-height) * 0.92);
+  }
+
+  /* Ensure long labels wrap */
+  .shipping-light-mode .text-wrapper-5,
+  .shipping-light-mode .text-wrapper-6,
+  .shipping-light-mode .text-wrapper-7,
+  .shipping-light-mode .text-wrapper-8,
+  .shipping-light-mode .text-wrapper-9,
+  .shipping-light-mode .text-wrapper-10,
+  .shipping-light-mode .text-wrapper-11,
+  .shipping-light-mode .text-wrapper-12,
+  .shipping-light-mode .text-wrapper-13,
+  .shipping-light-mode .text-wrapper-14,
+  .shipping-light-mode .text-wrapper-15 {
+    white-space: normal;
+  }
+}
+
+/* ---------- Tiny phones (≤ 380px) ---------- */
+@media (max-width: 380px) {
+  .shipping-light-mode .frame { gap: 8px; }
+  .shipping-light-mode .button { padding: 12px 16px; }
+}
