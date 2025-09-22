@@ -917,3 +917,285 @@
   letter-spacing: 0.17px;
   line-height: 11px;
 }
+
+/* ===========================================================
+   PRODUCT PAGE — RESPONSIVE PATCH
+   Paste this AFTER your current CSS so it can override it.
+   This only changes layout at smaller widths; desktop stays intact.
+   =========================================================== */
+
+/* --- shared safe fixes --- */
+.product-page-light { width: 100%; overflow-x: hidden; }
+.product-page-light .line { width: 100%; max-width: 100%; }
+
+/* ===========================================================
+   ≤ 1440px — relax rigid widths, center canvas
+   =========================================================== */
+@media (max-width: 1440px) {
+  .product-page-light .div {
+    width: 100% !important;
+    max-width: 1710px;
+    margin: 0 auto;
+    height: auto !important;
+  }
+
+  .product-page-light .overlap {
+    left: 0 !important;
+    width: 100% !important;
+  }
+
+  .product-page-light .frame-24 {
+    left: 0 !important;
+    width: 100% !important;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .product-page-light .overlap-group {
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr; /* visuals | text */
+    gap: 32px;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .product-page-light .frame {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  .product-page-light .frame-wrapper,
+  .product-page-light .frame-9,
+  .product-page-light .frame-14,
+  .product-page-light .frame-19,
+  .product-page-light .frame-20 {
+    width: 100% !important;
+  }
+
+  .product-page-light .metrics,
+  .product-page-light .metrics-2 {
+    width: 100% !important;
+  }
+
+  .product-page-light .vector,
+  .product-page-light .vector-3 {
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+  }
+
+  .product-page-light .frame-23 { /* skill/sphere badges row */
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .product-page-light .l-arginine-pill {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    display: block;
+    margin: 24px auto 0;
+    width: 140px;
+    height: auto;
+    aspect-ratio: 0.37;
+  }
+
+  .product-page-light .infinite-outline-wrapper {
+    position: fixed !important;
+    left: auto !important;
+    top: auto !important;
+    right: 24px;
+    bottom: 24px;
+    z-index: 5;
+  }
+}
+
+/* ===========================================================
+   ≤ 1200px — tighter grid & type scaling
+   =========================================================== */
+@media (max-width: 1200px) {
+  .product-page-light .overlap-group {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 0 20px;
+  }
+
+  .product-page-light .text-wrapper { /* product title */
+    font-size: clamp(24px, 2.6vw, var(--heading-h3-font-size));
+    line-height: 1.25;
+  }
+
+  .product-page-light .p {            /* description */
+    font-size: clamp(14px, 1.6vw, var(--body-md-font-size));
+    line-height: 1.6;
+  }
+
+  .product-page-light .button {
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+/* ===========================================================
+   ≤ 992px — stack columns (tablet)
+   =========================================================== */
+@media (max-width: 992px) {
+  .product-page-light .frame-24 { padding: 0 16px; }
+
+  .product-page-light .overlap-group {
+    grid-template-columns: 1fr;   /* stack everything */
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  /* decorative backgrounds get out of the way */
+  .product-page-light .vector-3 { display: none !important; }
+  .product-page-light .vector { display: none !important; }
+
+  .product-page-light .frame { order: 2; }
+  .product-page-light .frame-wrapper { order: 3; }
+  .product-page-light .frame-13,
+  .product-page-light .frame-19 { order: 4; }
+  .product-page-light .frame-23 { order: 1; }
+
+  .product-page-light .l-arginine-pill {
+    margin-top: 8px;
+    width: 120px;
+  }
+
+  .product-page-light .frame-12 { gap: 18px; }
+}
+
+/* ===========================================================
+   ≤ 768px — phone layout
+   =========================================================== */
+@media (max-width: 768px) {
+
+  /* Make the top bar behave like a sticky header */
+  .product-page-light .overlap {
+    position: sticky !important;
+    top: 0;
+    z-index: 9;
+    height: auto !important;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
+    background: var(--mapped-surface-primary);
+  }
+
+  .product-page-light .frame-24 {
+    position: static !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .product-page-light .frame-25 { gap: 16px; }
+
+  .product-page-light .frame-29 {
+    position: absolute;
+    right: 8px;
+    top: -6px;
+    left: auto;
+  }
+
+  .product-page-light .div {
+    padding-bottom: 96px; /* keep space for floating infinity icon */
+  }
+
+  .product-page-light .overlap-group {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .product-page-light .frame { gap: 16px; }
+
+  .product-page-light .frame-3,
+  .product-page-light .frame-4 {
+    height: auto !important;
+    position: static !important;
+    width: 100% !important;
+  }
+
+  .product-page-light .metrics,
+  .product-page-light .metrics-2 {
+    padding: 10px 14px;
+    box-sizing: border-box;
+  }
+
+  .product-page-light .rectangle-wrapper { width: 100px; }
+
+  .product-page-light .frame-wrapper { padding: 20px; }
+
+  .product-page-light .frame-9 { gap: 14px; }
+
+  .product-page-light .frame-10 { gap: 14px; }
+
+  .product-page-light .button { width: 100% !important; }
+
+  .product-page-light .frame-14,
+  .product-page-light .frame-20 {
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .product-page-light .frame-15,
+  .product-page-light .frame-17,
+  .product-page-light .frame-21,
+  .product-page-light .frame-23 {
+    padding-right: 10px;
+  }
+
+  .product-page-light .frame-22 {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .product-page-light .label-3,
+  .product-page-light .label-4,
+  .product-page-light .label-6,
+  .product-page-light .label-7,
+  .product-page-light .label-8,
+  .product-page-light .label-5 {
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .product-page-light .infinite-outline-wrapper {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+/* ===========================================================
+   ≤ 480px — small phones
+   =========================================================== */
+@media (max-width: 480px) {
+  .product-page-light .text-wrapper { font-size: 22px; }
+
+  .product-page-light .l-arginine-pill { width: 86px; }
+
+  .product-page-light .frame-wrapper { padding: 16px; }
+
+  .product-page-light .frame-12 { gap: 12px; }
+
+  .product-page-light .text-wrapper-5,
+  .product-page-light .text-wrapper-11 {
+    font-size: clamp(18px, 6vw, 22px);
+  }
+
+  .product-page-light .frame-21,
+  .product-page-light .frame-23 {
+    width: 100% !important;
+  }
+}
