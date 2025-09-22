@@ -717,3 +717,245 @@
   width: 24px;
   height: 24px;
 }
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS for .visits-overview (mobile-first)
+   ========================================================= */
+
+/* ---------- Tablet & down ---------- */
+@media (max-width: 1024px) {
+  .visits-overview {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .visits-overview .div {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 88px; /* space for FAB on mobile */
+  }
+
+  /* Top bar becomes sticky header */
+  .visits-overview .overlap {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    background: var(--mapped-surface-primary);
+    border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
+    z-index: 50;
+  }
+
+  .visits-overview .frame {
+    position: static;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  /* Mobile title (no HTML change needed) */
+  .visits-overview .frame::before {
+    content: "DR.PEPE.AI";
+    font-family: var(--body-md-font-family);
+    font-weight: var(--body-md-font-weight);
+    color: var(--mapped-text-headings);
+    font-size: var(--body-md-font-size);
+    line-height: var(--body-md-line-height);
+    white-space: nowrap;
+  }
+
+  /* Keep only the "CONTINUE SHOPPING" link visible in header on small screens */
+  .visits-overview .label { padding: 0; }
+  .visits-overview .frame-wrapper { display: none; } /* hides loyalty pill */
+
+  /* Main content becomes a vertical column */
+  .visits-overview .overlap-group {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    left: auto;
+    top: auto;
+  }
+
+  /* Hide decorative backgrounds */
+  .visits-overview .img,
+  .visits-overview .vector-5 {
+    display: none;
+  }
+
+  /* Section title */
+  .visits-overview .frame-9 {
+    position: static;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 0 4px;
+  }
+  .visits-overview .text-wrapper-11 {
+    white-space: nowrap;
+  }
+
+  /* Order: list first, then the right-side panel (now stacked) */
+  .visits-overview .frame-5 {
+    order: 2;
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .visits-overview .frame-10 {
+    order: 3;
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Cards turn fluid */
+  .visits-overview .frame-6,
+  .visits-overview .frame-8,
+  .visits-overview .frame-12,
+  .visits-overview .frame-18,
+  .visits-overview .frame-19 {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 13px;
+  }
+
+  /* List item content grows full width */
+  .visits-overview .frame-7 { width: 100%; }
+
+  /* Tabs row */
+  .visits-overview .frame-15 {
+    height: auto;
+    padding: 6px 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* Details blocks stack */
+  .visits-overview .frame-16 {
+    height: auto;
+    gap: 12px;
+  }
+  .visits-overview .frame-17 {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .visits-overview .frame-18 { gap: 16px; }
+
+  /* Long text can wrap */
+  .visits-overview .text-wrapper-17 {
+    white-space: normal;
+    margin-right: 0;
+  }
+
+  /* Floating Action Button (infinity) → bottom-right */
+  .visits-overview .button-icon {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    left: auto;
+    top: auto;
+    z-index: 60;
+    background-color: var(--mapped-icon-primary);
+    border-radius: var(--brand-scale-50);
+  }
+}
+
+/* ---------- Mobile focus (≤ 640px) ---------- */
+@media (max-width: 640px) {
+  /* Compact header */
+  .visits-overview .overlap { height: 54px; }
+  .visits-overview .frame {
+    padding: 0 12px;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+  .visits-overview .text-wrapper { /* CONTINUE SHOPPING */
+    font-size: var(--body-sm-link-font-size);
+    line-height: var(--body-sm-link-line-height);
+  }
+
+  /* Mobile-friendly paddings */
+  .visits-overview .frame-5 { gap: 12px; }
+  .visits-overview .frame-6,
+  .visits-overview .frame-8,
+  .visits-overview .frame-12,
+  .visits-overview .frame-18,
+  .visits-overview .frame-19 {
+    padding: 12px;
+  }
+
+  /* Panel header stacks on two lines if needed */
+  .visits-overview .frame-11 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Status row wraps */
+  .visits-overview .frame-14 {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  /* Typography scale-down a touch */
+  .visits-overview .text-wrapper-5 { /* card title */
+    font-size: calc(var(--body-lg-bold-font-size) * 0.95);
+    line-height: calc(var(--body-lg-bold-line-height) * 0.95);
+  }
+  .visits-overview .text-wrapper-12, /* VISIT DETAILS */
+  .visits-overview .text-wrapper-13 { /* section labels */
+    font-size: calc(var(--body-md-bold-font-size) * 0.95);
+    line-height: calc(var(--body-md-bold-line-height) * 0.95);
+  }
+
+  /* Ensure all “chip” labels are tappable */
+  .visits-overview .label,
+  .visits-overview .label-2,
+  .visits-overview .label-3,
+  .visits-overview .label-4,
+  .visits-overview .label-5,
+  .visits-overview .label-6,
+  .visits-overview .label-7 {
+    min-height: 32px;
+  }
+}
+
+/* ---------- Mid tablet to small desktop (641px–1024px) polish ---------- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .visits-overview .overlap-group { padding: 20px; }
+  .visits-overview .frame-5,
+  .visits-overview .frame-10 { gap: 14px; }
+  .visits-overview .frame-6,
+  .visits-overview .frame-8,
+  .visits-overview .frame-12,
+  .visits-overview .frame-18,
+  .visits-overview .frame-19 { padding: 16px; }
+}
+
+/* ---------- Desktop (≥ 1025px) stays as your original ---------- */
+
