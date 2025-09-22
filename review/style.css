@@ -862,3 +862,255 @@
   padding: 12px;
   border-radius: var(--brand-scale-50);
 }
+
+/* =========================================================
+   REVIEW PAGE — RESPONSIVE OVERRIDES (no HTML changes)
+   Targets .review-light-mode
+   ========================================================= */
+
+/* ---------- Large → Tablet ---------- */
+@media (max-width: 1280px) {
+  .review-light-mode .div {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .review-light-mode .overlap {
+    width: 100%;
+    left: 0;
+  }
+
+  .review-light-mode .frame {
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    padding: 8px 16px;
+    box-sizing: border-box;
+  }
+}
+
+/* ---------- Tablet & Down (stack layout, fluid widths) ---------- */
+@media (max-width: 1024px) {
+  /* Header becomes sticky */
+  .review-light-mode .overlap {
+    position: sticky;
+    top: 0;
+    height: 56px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+  }
+
+  .review-light-mode .frame {
+    padding: 0 16px;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  /* Hide loyalty / rewards pill to save space */
+  .review-light-mode .label { display: none; }
+
+  /* Main content column */
+  .review-light-mode .overlap-group {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    left: auto;
+    top: auto;
+  }
+
+  /* Decorative backgrounds off on small screens */
+  .review-light-mode .img,          /* /assets/backgroundReviewBig.svg */
+  .review-light-mode .vector-2 {    /* /assets/BackgroundPaymentSmall.svg */
+    display: none;
+  }
+
+  /* Section title */
+  .review-light-mode .frame-5 {
+    position: static;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+  }
+
+  /* Left column (product + checkbox + CTA) → full width */
+  .review-light-mode .frame-6 {
+    position: static;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .review-light-mode .frame-7 {
+    background: var(--brand-grey-lighter-2);
+    border-radius: 13px;
+    gap: 12px;
+  }
+
+  .review-light-mode .frame-8 {
+    height: auto;
+    padding: 16px;
+    border-radius: 13px;
+  }
+
+  .review-light-mode .frame-9 { width: 100%; }
+
+  .review-light-mode .frame-10 { gap: 16px; }
+
+  .review-light-mode .frame-11 { /* product thumb */
+    width: 88px;
+    height: 88px;
+    border-radius: 8px;
+  }
+
+  .review-light-mode .frame-12 { width: auto; }
+
+  .review-light-mode .text-wrapper-6 { /* product name */
+    white-space: normal;
+  }
+
+  .review-light-mode .text-wrapper-8 { /* line price */
+    margin-left: auto;
+  }
+
+  .review-light-mode .frame-13 { /* agreement row */
+    align-items: center;
+  }
+
+  .review-light-mode .button { /* CTA full width */
+    width: 100%;
+  }
+
+  /* Right column (order summary) drops under product block */
+  .review-light-mode .frame-14 {
+    order: 3;
+    position: static;
+    width: 100%;
+    height: auto;
+    gap: 16px;
+  }
+
+  .review-light-mode .frame-15 {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .review-light-mode .frame-16,
+  .review-light-mode .frame-17,
+  .review-light-mode .frame-18,
+  .review-light-mode .frame-19,
+  .review-light-mode .frame-20,
+  .review-light-mode .frame-21,
+  .review-light-mode .frame-22 {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Stepper row (Shipping / Payment / Review) centers and becomes inline */
+  .review-light-mode .frame-24 {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 8px 0 0;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .review-light-mode .frame-25,
+  .review-light-mode .frame-26,
+  .review-light-mode .frame-27 {
+    position: static;
+  }
+  .review-light-mode .rectangle,
+  .review-light-mode .rectangle-2 {
+    display: none; /* hide desktop progress lines */
+  }
+
+  /* FAB → bottom-right */
+  .review-light-mode .infinite-outline-wrapper {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    left: auto;
+    top: auto;
+    z-index: 50;
+    padding: 10px;
+    border-radius: var(--brand-scale-50);
+    background-color: var(--mapped-icon-primary);
+  }
+}
+
+/* ---------- Mobile (≤ 640px) ---------- */
+@media (max-width: 640px) {
+  /* Compact header */
+  .review-light-mode .overlap { height: 54px; }
+  .review-light-mode .frame { padding: 0 12px; gap: 10px; }
+
+  /* Cards & paddings */
+  .review-light-mode .frame-8,
+  .review-light-mode .frame-15 {
+    padding: 16px;
+  }
+
+  /* Product row wraps better */
+  .review-light-mode .frame-9 {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .review-light-mode .frame-12 { width: calc(100% - 100px); }
+  .review-light-mode .text-wrapper-8 { /* price */
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Agreement line */
+  .review-light-mode .p { white-space: normal; }
+
+  /* Typography slightly smaller */
+  .review-light-mode .text-wrapper,
+  .review-light-mode .text-wrapper-5,
+  .review-light-mode .text-wrapper-9,
+  .review-light-mode .text-wrapper-10,
+  .review-light-mode .text-wrapper-11,
+  .review-light-mode .text-wrapper-12,
+  .review-light-mode .text-wrapper-13,
+  .review-light-mode .text-wrapper-14,
+  .review-light-mode .text-wrapper-15,
+  .review-light-mode .text-wrapper-16,
+  .review-light-mode .text-wrapper-17,
+  .review-light-mode .text-wrapper-18,
+  .review-light-mode .text-wrapper-19,
+  .review-light-mode .text-wrapper-21 {
+    font-size: calc(1em * 0.95);
+    line-height: calc(1.2em * 0.95);
+  }
+
+  /* Ensure long labels wrap */
+  .review-light-mode .text-wrapper-6,
+  .review-light-mode .text-wrapper-7,
+  .review-light-mode .text-wrapper-9,
+  .review-light-mode .text-wrapper-12,
+  .review-light-mode .text-wrapper-18,
+  .review-light-mode .text-wrapper-19 {
+    white-space: normal;
+  }
+}
+
+/* ---------- Tiny phones (≤ 380px) ---------- */
+@media (max-width: 380px) {
+  .review-light-mode .frame { gap: 8px; }
+  .review-light-mode .button { padding: 12px 16px; }
+}
