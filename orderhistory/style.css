@@ -1,22 +1,46 @@
-/* Header container */
-.site-header{
-  position: fixed;           
-  top: 0; left: 0; right: 0;
-  z-index: 10;
-  background: var(--mapped-surface-primary);
-  border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
-  height: 4rem;              
+/* =========================================
+   Base + Typography
+========================================= */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+
+
+
 }
 
-.site-header__inner{
-  max-width: 1200px; margin: 0 auto;
+/* =========================================
+   Header
+========================================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 10;
+  height: 4rem;
+
+  background: var(--mapped-surface-primary);
+  border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
+}
+
+.site-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 12px 16px;
-  display: flex; align-items: center; justify-content: space-between;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
 }
 
-
-.brand{
+.brand {
   font-family: var(--body-lg-font-family);
   font-weight: var(--body-lg-font-weight);
   font-size: var(--body-lg-font-size);
@@ -25,16 +49,24 @@
   white-space: nowrap;
 }
 
+.credits {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 
-.credits{
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--brand-blue-lighter);
+  padding: 8px 12px;
   border: 1px solid var(--mapped-border-and-dividers-secondary);
-  padding: 8px 12px; border-radius: 12px;
+  border-radius: 12px;
+
+  background: var(--brand-blue-lighter);
 }
 
-.credits__icon{ width: 20px; height: 20px; }
-.credits__count{
+.credits__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.credits__count {
   font-family: var(--body-md-bold-font-family);
   font-weight: var(--body-md-bold-font-weight);
   font-size: var(--body-md-bold-font-size);
@@ -42,63 +74,490 @@
   color: var(--mapped-text-body);
 }
 
-.credits__badge{
-  padding: 2px 8px; border-radius: var(--alias-border-radius-lg);
+.credits__badge {
+  padding: 2px 8px;
+  border-radius: var(--alias-border-radius-lg);
+
   background: var(--mapped-surface-success);
   border: 1px solid var(--mapped-border-and-dividers-success);
   color: var(--mapped-text-success);
-  font: var(--body-md-bold-font-weight) var(--body-md-bold-font-size)/var(--body-md-bold-line-height) var(--body-md-bold-font-family);
+
+  font: var(--body-md-bold-font-weight) var(--body-md-bold-font-size) /
+        var(--body-md-bold-line-height) var(--body-md-bold-font-family);
 }
 
-.credits__add{
-  display: inline-grid; place-items: center;
-  width: 28px; height: 28px; border-radius: var(--alias-border-radius-lg);
+.credits__add {
+  display: inline-grid;
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+  border-radius: var(--alias-border-radius-lg);
+
   background: var(--brand-neon-cards-surface-light-purple);
   border: 1px solid var(--mapped-border-and-dividers-hightlight);
   color: var(--brand-purple-dark);
-  font-weight: 700; line-height: 1;
+
+  font-weight: 700;
+  line-height: 1;
 }
 
-/* --- Responsiveness --- */
-@media (max-width: 768px){
-  .site-header__inner{ padding: 10px 12px; }
-  .credits{ gap: 8px; padding: 6px 10px; }
-  .credits__badge{ display: none; }         
+.site-header img {
+  max-width: 100%;
+  height: auto;
 }
 
-@media (max-width: 420px){
-  .brand{ font-size: 16px; }                 
-  .credits__count{ font-size: 14px; }
-  .credits__add{ width: 26px; height: 26px; }
-}
+/* =========================================
+   Background SVG (fixed) + Content Overlay
+========================================= */
 
-
-.site-header img{ max-width: 100%; height: auto; }
-
-
-/* header ends here */ 
-
- html, body { margin:0; height:100%; overflow:hidden;  }
 .background-fluid {
   position: fixed;
-  top: 4rem; 
+  top: 4rem; /* below header */
   left: 50%;
   transform: translateX(-50%);
+
+  display: block;
+  box-sizing: border-box;
+
   width: 100%;
   max-width: 1200px;
   height: calc(100dvh - 4rem);
-  display: block;
-  box-sizing: border-box;
   padding: 16px 16px;
 }
 
+/* Optional debug container (centered overlay block) */
+.order-history-container {
+
+  position: fixed;
+  top: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block;
+  box-sizing: border-box;
+
+  width: 100%;
+  max-width: fit-content;
+  height: calc(100dvh - 12rem);
+ 
+    text-transform: uppercase;
+ padding: 2rem;
+}
+
+/* Main scrolling area over the SVG */
+.content-area {
+  position: fixed;
+  top: 4rem; /* same as header height */
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 20; /* above background */
+  box-sizing: border-box;
+
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100dvh - 4rem);
+  padding: 4rem; /* adjust to align with panel in SVG */
+
+  overflow-y: auto;
+}
+
+/* =========================================
+   Generic Table Defaults (if used)
+========================================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* =========================================
+   Order History Block
+========================================= */
+
+.order-history-light {
+  background: var(--mapped-surface-primary);
+  width: 100%;
+}
+
+.overlap-group {
+  position: relative;
+}
+
+.overlap-group > .img {
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100dvh - 4rem);
+
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* A single .frame-5; removed duplicate definitions */
+.frame-5 {
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 20;
+  box-sizing: border-box;
+
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100dvh - 4rem);
+  padding: 4rem;
+
+  overflow: auto;
+
+  /* Optional visual background for inner frame */
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.text-wrapper-5 {
+  font-family: var(--body-lg-bold-font-family);
+  font-weight: var(--body-lg-bold-font-weight);
+  font-size: var(--body-lg-bold-font-size);
+  line-height: var(--body-lg-bold-line-height);
+  color: var(--mapped-text-body);
+
+  margin-bottom: 1rem;
+}
+
+
+
+/* =========================================
+   Grid “Table” (Order rows)
+========================================= */
+
+.oh-grid {
+  display: grid;
+  grid-template-columns:
+    1px
+    1px
+    1px
+    1px
+    1px
+    1px
+    1px;
+  gap: 12px;
+  align-items: center;
+}
+
+.oh-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  padding: 8px 0;
+  margin-top: 8px;
+
+  background: var(--mapped-surface-primary);
+  border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
+}
+
+.oh-head > div {
+  font-family: var(--body-md-bold-font-family);
+  font-weight: var(--body-md-bold-font-weight);
+  font-size: var(--body-md-bold-font-size);
+  line-height: var(--body-md-bold-line-height);
+  color: var(--mapped-text-body);
+  white-space: nowrap;
+}
+
+.oh-row {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
+}
+
+.oh-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+      font-family: var(--body-md-bold-font-family);
+    font-weight: var(--body-md-bold-font-weight);
+    font-size: var(--body-sm-bold-font-size);
+    line-height: var(--body-md-bold-line-height);
+    color: var(--mapped-text-body);
+}
+.hide-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space:wrap;
+    font-family: var(--body-md-bold-font-family);
+    font-weight: var(--body-md-bold-font-weight);
+    font-size: var(--body-sm-bold-font-size);
+    line-height: var(--body-md-bold-line-height);
+    color: var(--mapped-text-body);
+}
+
+.date-info, .number-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space:wrap;
+    font-family: var(--body-md-bold-font-family);
+    font-weight: var(--body-md-bold-font-weight);
+    font-size: var(--body-sm-bold-font-size);
+    line-height: var(--body-md-bold-line-height);
+    color: var(--mapped-text-body);
+}
+
+
+.oh-ico {
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================================
+   Pills
+========================================= */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 2px 8px;
+  border-radius: var(--alias-border-radius-lg);
+  border: 1px solid transparent;
+
+  white-space: nowrap;
+
+  font-family: var(--body-sm-bold-font-family);
+  font-weight: var(--body-sm-bold-font-weight);
+  font-size: var(--body-sm-bold-font-size);
+  line-height: var(--body-sm-bold-line-height);
+}
+
+.pill.warn {
+  background: var(--mapped-surface-warning);
+  border-color: var(--mapped-border-and-dividers-warning);
+  color: var(--mapped-text-warning);
+}
+
+.pill.error {
+  background: var(--mapped-surface-error);
+  border-color: var(--mapped-border-and-dividers-error);
+  color: var(--mapped-text-error);
+}
+
+.pill.success {
+  background: var(--mapped-surface-success);
+  border-color: var(--mapped-border-and-dividers-success);
+  color: var(--mapped-text-success);
+}
+
+.pill.info {
+  background: var(--brand-blue-lighter);
+  border-color: var(--mapped-border-and-dividers-secondary);
+  color: var(--mapped-text-body);
+}
+
+/* =========================================
+   Buttons
+========================================= */
+
+.btn-ghost {
+  padding: 6px 10px;
+  border-radius: var(--alias-border-radius-lg);
+  border: 1px solid var(--mapped-border-and-dividers-secondary);
+
+  background: var(--mapped-surface-action-1);
+  color: var(--mapped-text-page);
+
+  cursor: pointer;
+      font-family: var(--body-sm-bold-font-family);
+    font-weight: var(--body-sm-bold-font-weight);
+    font-size: var(--body-sm-bold-font-size);
+    line-height: var(--body-sm-bold-line-height);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+
+  border: 1px solid var(--mapped-border-and-dividers-action);
+  background: transparent;
+}
+
+.icon-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* =========================================
+   Pager
+========================================= */
+
+.oh-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 2rem;
+
+        font-family: var(--body-sm-bold-font-family);
+    font-weight: var(--body-sm-bold-font-weight);
+    font-size: var(--body-sm-bold-font-size);
+    line-height: var(--body-sm-bold-line-height);
+}
+
+/* =========================================
+   Media Queries
+========================================= */
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 820px) {
+  .hide-md {
+    display: none;
+  }
+
+
+}
 
 @media (max-width: 768px) {
+  .site-header__inner {
+    padding: 10px 12px;
+  }
+
+  .credits {
+    gap: 8px;
+    padding: 6px 10px;
+  }
+
+  .credits__badge {
+    display: none;
+  }
+
   .background-fluid {
-    padding: 16px 16px; 
+    padding: 16px 16px;
+  }
+
+  .order-history-container{
+    padding: 2.5rem;
+    padding-top: 0;
   }
 }
 
-  @supports not (height: 100dvh) {
-   .background-fluid{ width: 100vw; height: 100vh; }
+@media (max-width: 640px) {
+  .hide-sm {
+    display: none;
   }
+
+
+}
+
+/* =========================================
+   Feature Queries / Fallbacks
+========================================= */
+
+@supports not (height: 100dvh) {
+  .background-fluid {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+/* Extra small header typography tweaks */
+@media (max-width: 420px) {
+  .brand {
+    font-size: 16px;
+  }
+
+  .credits__count {
+    font-size: 14px;
+  }
+
+  .credits__add {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* ---- Horizontal scroll wrapper ---- */
+.oh-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Optional: a subtle bottom padding so the sticky header shadow isn't clipped */
+  padding-bottom: 2px;
+}
+
+
+
+
+
+
+
+/* Keep header stuck while scrolling vertically inside the scroll area */
+.oh-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--mapped-surface-primary);
+  border-bottom: 1px solid var(--mapped-border-and-dividers-secondary);
+}
+
+/* Do NOT hide columns on small screens anymore */
+.hide-sm,
+.hide-md {
+  display: inline-flex !important;
+}
+
+/* Optional: show a tiny shadow under the sticky header when content scrolls */
+.oh-scroll:has(.oh-grid:nth-of-type(2)) .oh-head {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+/* If your parent containers set overflow, allow horizontal scrolling to propagate */
+.frame-5, .content-area {
+  overflow-x: visible; /* keep your existing overflow-y */
+}
+
+/* Keep text from wrapping weirdly inside tight columns (optional) */
+.oh-grid > div {
+  min-width: 0;          /* enable ellipsis to work */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   /* remove if you prefer wrapping */
+}
+
+
+.oh-grid {
+  grid-template-columns:
+    40px  /* col 1 */
+    150px  /* col 2 */
+    150px  /* col 3 */
+    150px  /* col 4 */
+    150px  /* col 5 */
+    100px  /* col 6 */
+    120px; /* col 7 */
+}

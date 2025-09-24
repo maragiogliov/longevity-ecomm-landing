@@ -9,30 +9,95 @@
   </head>
   <body>
     <div class="order-history-light">
-      <div class="div">
-
-
-        <header class="site-header">
-          <div class="site-header__inner">
-            <div class="brand">DR.PEPE.AI</div>
-
-            <div class="credits">
-              <img class="credits__icon" src="/assets/gold.svg" alt="" />
-              <span class="credits__count">32</span>
-              <span class="credits__badge">4 free</span>
-              <button class="credits__add" aria-label="Add">+</button>
-            </div>
+      <!-- fixed site header -->
+      <header class="site-header">
+        <div class="site-header__inner">
+          <div class="brand">DR.PEPE.AI</div>
+          <div class="credits">
+            <img class="credits__icon" src="/assets/gold.svg" alt="" />
+            <span class="credits__count">32</span>
+            <span class="credits__badge">4 free</span>
+            <button class="credits__add" aria-label="Add">+</button>
           </div>
-        </header>
+        </div>
+      </header>
 
-          <img class="background-fluid" src="/assets/backgroundOrderHistory.svg" />
+      <!-- fixed background -->
+      <img class="background-fluid" src="/assets/backgroundOrderHistory.svg" />
 
+      <div class="order-history-container">
 
- 
+        <div class="text-wrapper-5">ORDER HISTORY</div>
+  
+    
+  <div class="oh-scroll">
 
+    <!-- grid header -->
+    <div class="oh-grid oh-head">
+      <div>#</div>
+      <div>TYPE</div>
+      <div class="hide-sm">Description</div>
+      <div>Order Status</div>
+      <div class="hide-md">Payment Status</div>
+      <div>Date</div>
+      <div>Actions</div>
+    </div>
 
-        
+    <!-- rows -->
+    <div class="oh-grid oh-row">
+      <div class="number-info">1</div>
+      <div class="oh-type">
+        <img src="/assets/supplementContainer.svg" alt="" class="oh-ico" />
+        SUPPLEMENT
       </div>
+      <div class="hide-sm">BJ Longevity Mix</div>
+      <div><span class="pill warn">PENDING</span></div>
+      <div class="hide-md"><span class="pill error">FAILED</span></div>
+      <div class="date-info">Aug 19, 2025</div>
+      <div><button class="btn-ghost">VIEW DETAILS</button></div>
+    </div>
+
+    <div class="oh-grid oh-row">
+      <div class="number-info">2</div>
+      <div class="oh-type">
+        <img src="/assets/medicationPill.svg" alt="" class="oh-ico" />
+        MEDICATION
+      </div>
+      <div class="hide-sm">Sildenafil</div>
+      <div><span class="pill info">SENT</span></div>
+      <div class="hide-md"><span class="pill success">SUCCEED</span></div>
+      <div class="date-info">Aug 19, 2025</div>
+      <div><button class="btn-ghost">VIEW DETAILS</button></div>
+    </div>
+
+    <div class="oh-grid oh-row">
+      <div class="number-info">3</div>
+      <div class="oh-type">
+        <img src="/assets/medicationPill.svg" alt="" class="oh-ico" />
+        MEDICATION
+      </div>
+      <div class="hide-sm">Sildenafil</div>
+      <div><span class="pill info">SENT</span></div>
+      <div class="hide-md"><span class="pill success">SUCCEED</span></div>
+      <div class="date-info">Aug 19, 2025</div>
+      <div><button class="btn-ghost">VIEW DETAILS</button></div>
+    </div>
+
+
+  </div>
+  
+
+
+
+        <!-- pagination -->
+        <div class="oh-pager">
+          <button class="icon-btn"><img src="/assets/chevron-back-outline.svg" alt="Prev" /></button>
+          <span>Page 1 of 1</span>
+          <button class="icon-btn"><img src="/assets/chevron-forward-outline.svg" alt="Next" /></button>
+        </div>
+
+      </div>
+
     </div>
   </body>
 </html>
